@@ -27,7 +27,7 @@ jobs:
             return;
           }
     
-          guthub.issues.update({
+          github.issues.update({
             issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
