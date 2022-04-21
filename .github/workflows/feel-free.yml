@@ -23,7 +23,7 @@ jobs:
                 ? context.payload.comment.body
                 // For the initial pull request description
                 : context.payload.pull_request.body) || '';
-          if (!body.match(/feel free to close/i)) {
+          if (!body.match(/\bfeel\s+free\s+to\s+close\b/i)) {
             return;
           }
     
@@ -38,6 +38,6 @@ jobs:
             issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: "Thank you for your contributions. 'Feel free to close' action has detected that you have indicated that this issue can be closed, and has closed the issue upon your request.\n\nIf this was a mistake, please re-open the issue and continue your discussion.\n\nPlease remember to be responsible for issues that you have raised, and close them yourself if no longer want to work on it."
+            body: "Thank you for your contributions. 'Feel free to close' action has detected that you have indicated that this issue can be closed, and has closed the issue upon your request.\n\nIf this was a mistake, please re-open the issue and continue your discussion.\n\nPlease remember to be responsible for issues that you have raised, and close them yourself if you no longer want to work on it."
           })
     
