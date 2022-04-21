@@ -18,7 +18,7 @@ jobs:
       with:
         script: |
           if (context.eventName === "issues") {
-            body = context.issue.body;
+            body = context.payload.issue.body;
           } else if (context.eventName === "issue_comment") {
             body = context.payload.comment.body;
           } else {
