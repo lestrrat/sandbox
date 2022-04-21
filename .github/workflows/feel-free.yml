@@ -22,7 +22,7 @@ jobs:
           } else if (context.eventName === "issue_comment") {
             body = context.payload.comment.body;
           } else {
-            body = context.payload.pull_request.body) || '';
+            body = context.payload.pull_request.body || '';
           }
 
           if (!body.match(/\bfeel\s+free\s+to\s+close\b/i)) {
