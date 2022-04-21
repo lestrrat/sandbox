@@ -17,13 +17,14 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
-          console.log(context.payload);
-          const body =
-            (context.eventName === "issue_comment"
-            // For comments on pull requests
-                ? context.payload.comment.body
-                // For the initial pull request description
-                : context.payload.pull_request.body) || '';
+          if (context.eventName === "issue") {
+            body = context.issue.body;
+          } else if (context.eventName === "issue_comment") {
+            body = context.payload.comment.body;
+          } else {
+            body = context.payload.pull_request.body) || '';
+          }
+
           if (!body.match(/\bfeel\s+free\s+to\s+close\b/i)) {
             return;
           }
