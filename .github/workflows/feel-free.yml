@@ -17,6 +17,7 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
+          console.log(context);
           if (context.eventName === "issue") {
             body = context.issue.body;
           } else if (context.eventName === "issue_comment") {
